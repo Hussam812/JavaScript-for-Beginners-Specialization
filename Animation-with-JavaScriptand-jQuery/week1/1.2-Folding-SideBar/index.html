@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Menu Example</title>
+    <link rel="stylesheet" href="styles.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+    <main>
+        <article>
+            <h1>Meow!</h1>
+            <p>
+                Humans, humans, humans ofh how much they love us felines we are the center 
+                of attention they feed, they clean plet around the house up and down stairs
+                chasing phantoms eat an easter feather as if it were a bird then burp victoriously, but tender
+                damn that dog roll over and sun my for cat sit like nread hey you there, widththe hands. Sniff Sniff
+                swat turds around the hous cat not kitten around, have my breakfast spaghetti yarn stairs or demand to be let
+                outside at once, and expect Owner to wait for me as i think about it.
+            </p>
+            <p>
+                Lounge doorway. Love hopped up on catnip, eat from dog's food. cats are the world pee in the shoe jump on human and sleep
+                on her all night long be long in the bed, purr
+                in the morning and then give a bite to every human around for npt waking up request
+                food, purr loud scratch the walls, the floor, the windows, the humans milk the cow. Hit
+                you unexpectedly floor tum, tickle bum, jellybean footies curky licj plastic bags woops poop hanging from left marks 
+                on floor humans slave clean lick butt now make plans to dominate world and then take a nap.
+            </p>
+
+            <p>
+                Mark territory put butt in owner's face crash against wall walk away like
+                nothing happened sleep everywhere, but not in my bed cry louder at reflection playing
+                with balls of wool. pretend you want to go out but then don't miaow then turn around 
+                and show you my bum kitty time so show belly somehow manage to shock. My cat sared at me he was sipping his tea, too you are
+                a catitve audiance while sitting on the toilet, pet me yet cuddle no cuddle cuddle love scratch scratch for spit up on light grey
+                carpet playing with balls of wool.
+            </p>
+        </article>
+
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li>
+                    <a href="#" class="menulink">Menu 1</a>
+                    <ul>
+                        <li><a href="#">Menu 1A</a></li>
+                        <li><a href="#">Menu 1B</a></li>
+                        <li><a href="#">Menu 1C</a></li>
+                        <li><a href="#">Menu 1D</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="menulink">Menu 2</a>
+                    <ul>
+                        <li><a href="#">Menu 2A</a></li>
+                        <li><a href="#">Menu 2B</a></li>
+                        <li><a href="#">Menu 2C</a></li>
+                        <li><a href="#">Menu 2D</a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="menulink">Menu 2</a>
+                    <ul>
+                        <li><a href="#">Menu 3A</a></li>
+                        <li><a href="#">Menu 3B</a></li>
+                        <li><a href="#">Menu 3C</a></li>
+                        <li><a href="#">Menu 3D</a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="menulink">Menu 4</a>
+                    <ul>
+                        <li><a href="#">Menu 4A</a></li>
+                        <li><a href="#">Menu 4B</a></li>
+                        <li><a href="#">Menu 4C</a></li>
+                        <li><a href="#">Menu 4D</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+
+        </aside>
+    </main>
+    <script>
+        function hideSumbmenus(){
+            const submenu = document.querySelectorAll("ul li ul");
+            for (let i = 0; i < submenu.length;i++){
+                m.className = "hide-menu";
+            }
+        }
+        hideSumbmenus();
+           
+        const menulinks = document.querySelectorAll(".menulink");
+        for (let i=0; i < menulinks.length; i++){
+            menulinks[i].addEventListener("click", function(evt){
+                evt.preventDefault();
+                const thismenu = this.parentNode.querySelector("ul");
+                //thismenu.className = "show-menu";
+                if (thismenu.classList.contains("hide-menu")){
+                    hideSumbmenus();
+    
+                    thismenu.className = "show-menu";
+    
+                }else{
+                    thismenu.className = "hide-menu";
+                }
+    
+            });
+    
+        }
+    </script>
+        
+</body>
+</html>
