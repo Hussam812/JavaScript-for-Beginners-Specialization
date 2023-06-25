@@ -1,0 +1,15 @@
+<body>
+    <p>don't change this paragraph</p>
+    <div id="main">
+    <p>don't change this paragraph</p>
+    <p>don't change this paragraph</p>
+    <p>Change this last paragraph</p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+        //$("#main p:last-of-type").css({"color":"red", "font-size": "36px"});
+
+        $("#main p").last().css({"color": "blue", "font-size":"36px"});
+    </script>
+</body>
