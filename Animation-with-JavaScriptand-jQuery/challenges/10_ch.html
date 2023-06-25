@@ -14,13 +14,9 @@
         <p>Here is paragraph eleven</p>
         <p>Here is paragraph twelve</p>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
-        var myps = document.querySelectorAll("#main p");
-        for ( p of myps){
-            if (p.innerHTML == "Llamas and Chickens!" ){
-                p.style.color = "red";
-            };
-        }
+        $("#main p:contains(Llamas and Chickens!)").css("color", "red")
     </script>
 
 </body>
