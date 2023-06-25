@@ -61,8 +61,14 @@
         //$("ol li:even").css("border", "2px solid red"); // select enven elemnts
         //$("#main p:first").css("border", "2px solid red");
         //$("ol li").even().css("border", "2px solid red"); // select enven elemnts
-        $("ul li").first().css("border", "2px solid red"); // select firt elemnt
-
+        //$("ul li").first().css("border", "2px solid red"); // select firt elemnt  
+        $("a").click(function(){
+            console.log($(this).html());
+        });
+        //plain JavaScript
+        $("a").click(function(){
+            console.log(this.innerHTML);
+        });
 
     </script>
 
