@@ -7,13 +7,14 @@
 </head>
 <body>
     <h1>jQuary Working ?</h1>
+    <p>Here is a paragraph</p>
+    <p>Here is a second paragraph</p>
+    <p>Here is a third paragraph</p>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
-        if (window.jQuery){
-            alert("jQuery is loaded! :-)");
-        }else{
-            alert("jQuary is not loaded :-(");
-        }
+       jQuery("h1").css("color", "red");
+       $("p").css("color", "green");
     </script>
 </body>
 </html>
