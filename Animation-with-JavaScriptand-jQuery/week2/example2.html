@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Easing jQuery Animation</title>
     <style>
         body{
             padding: 100px;
@@ -46,15 +46,23 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#" id="slideupbox">hide</a></li>
-            <li><a href="#" id="slidedownbox">show</a></li>
-            <li><a href="#" id="slidetogglebox">toggle</a></li>
+            <li><a href="#" id="slideupbox">slideup</a></li>
+            <li><a href="#" id="slidedownbox">slidedown</a></li>
+            <li><a href="#" id="slidetogglebox">slidetoggle</a></li>
         </ul>
 
     </nav>
 
     <div id="box"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+        $("#slideupbox").click(function(){$("#box").slideUp(1000)});
+        $("#slidedownbox").click(function(){$("#box").slideDown(200)});
+        $("#slidetogglebox").click(function(){
+            $("#box").slideToggle(2000, "easeOutBounce", function(){
+                alert("finshied!")
+            })})
+    </script>
 </body>
 </html>
