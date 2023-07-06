@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadding jQuery Animation</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+        nav {
+            margin-bottom: 50px;
+        }
+        nav ul {
+            overflow: hidden;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-left: 1px solid #777676;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            text-align: center;
+            width: 149px;
+            text-decoration: none;
+            border-right: 1px solid #777676;
+            text-transform: uppercase;
+            line-height: 50px;
+            background: #bebcbc;
+            color: #333;
+            height: 50px;
+        }
+        nav ul li a:hover{
+            background-color: #D5D4D4;
+        }
+        #box {
+            width: 600px;
+            height: 300px;
+            background-color: #4C90D8;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" id="fadeoutbox">fade out</a></li>
+            <li><a href="#" id="fadeinbox">fade in</a></li>
+            <li><a href="#" id="fadeto20box">fade to 20%</a></li>
+            <li><a href="#" id="fadeto100box">fade to 100%</a></li>
+        </ul>
+    </nav>
+    <div id="box"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+        $("#fadeoutbox").click(function(){
+            $("#box").fadeOut(1000);
+        });
+
+        $("#fadeinbox").click(function(){
+            $("#box").fadeIn(1000);
+        });
+
+        $("#fadeto20box").click(function(){
+            $("#box").fadeTo(1000, .2);
+        });
+        $("#fadeto100box").click(function(){
+            $("#box").fadeTo(1000, 1, "swing", function(){
+                alert("finished!")
+            });
+        });
+
+    </script>
+</body>
+</html>
