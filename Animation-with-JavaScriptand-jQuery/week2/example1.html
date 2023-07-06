@@ -57,9 +57,9 @@
     <div id="box"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
-        $("#hidebox").click(function(){$("#box").hide();});
-        $("#showbox").click(function(){$("#box").show()});
-        $("#togglebox").click(function(){$("#box").toggle()})
+        $("#hidebox").click(function(){$("#box").hide(500);});
+        $("#showbox").click(function(){$("#box").show(1000)});
+        $("#togglebox").click(function(){$("#box").toggle(500, function(){alert("Done")})})
     </script>
 </body>
 </html>
