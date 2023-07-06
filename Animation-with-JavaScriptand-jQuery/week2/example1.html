@@ -55,9 +55,11 @@
     </nav>
 
     <div id="box"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
-        
+        $("#hidebox").click(function(){$("#box").hide();});
+        $("#showbox").click(function(){$("#box").show()});
+        $("#togglebox").click(function(){$("#box").toggle()})
     </script>
 </body>
 </html>
