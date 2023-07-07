@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic jQuery Image Slider</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="slider">
+        <ul>
+            <li><img src="slides/image1.jpg" alt="slideshow image" ></li>
+            <li><img src="slides/image2.jpg" alt="slideshow image" ></li>
+            <li><img src="slides/image3.jpg" alt="slideshow image" ></li>
+            <li><img src="slides/image4.jpg" alt="slideshow image" ></li>
+            <li><img src="slides/image5.jpg" alt="slideshow image" ></li>
+        </ul>
+    </div>
+    <p id="links">
+        <a href="#" id="previous">previous</a>
+        <a href="#" id="next">next</a>
+    </p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(window).on("load", function(){
+            "use strict";
+
+            const imageCount = $("#slider ul li").length;
+            const imageWidth = $("#slider ul li:frist img").width();
+            const totalWidth = (imageCount * imageWidth) + "px";
+            let leftPosition = 0;
+            let counter = 0;
+            alert(totalWidth);
+
+            $("#slider ul").css("width", totalWidth);
+        });
+        
+    </script>
+</body>
+</html>
