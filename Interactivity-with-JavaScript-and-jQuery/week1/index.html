@@ -14,7 +14,35 @@
 
         <label for="favcolor">Favorite Color</label>
         <input type="color" id="favcolor" name="Favcolor">
+        <fieldset>
+            <legend>Do you want Spam?</legend>
+            <input type="radio" name="y-s" id="y-s">
+            <label for="y-s">Yes, Send me spam!</label>
 
+            <input type="radio" name="n-s" id="n-s">
+            <label for="n-s">No, Don't send spam</label>
+        </fieldset>
+        <fieldset>
+            <legend>Favorite Animal</legend>
+            <input type="checkbox" name="animal[]" id="cat" value="cat" >
+            <label for="cat">Cat</label>
+
+            <input type="checkbox" name="animal[]" id="dog" value="dog" checked>
+            <label for="dog">Dog</label>
+
+            <input type="checkbox" name="animal[]" id="llama" value="llama" checked>
+            <label for="llama">Llama</label>
+        </fieldset>
+        <label for="cheese">Favorite Cheese</label>
+        <select id="cheese" name="favcheese">
+            <option>----------</option>
+            <option value="American">American</option>
+            <option value="Swiss">Swiss</option>
+            <option value="Brie">Brie</option>
+        </select>
+        <label for="comment">Please Tell US What You Think</label>
+        <textarea name="comment" id="comment" rows="10" cols="50" placeholder="your comments"></textarea>
+        <input type="submit" value="Send Form" name="submit" id="submit"> 
     </form>
 </body>
 </html>
