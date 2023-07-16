@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data</title>
+</head>
+<body>
+    <h1>Working with JSON Data</h1>
+
+    <p>
+        Usually JSOn data will come from an external source, such as a database, or an API (Application Programming Interface), 
+        such as Google Maps or from Twitter. In this file, we are simply including the JSON directly.
+    </p>
+
+    <script>
+        var json = '{"first_name" : "joe", "last_name": "Jones", "age": 25,"social_media": ["facebook", "Twitter", "Instagram"],"online": true, "phone_numbers": {"home": "916-1232-4567", "work":"916-321-9876","mobile": "530-212-1111"},"status":"active"}' ;
+        var user = JSON.parse(json);
+        //console.log(json);
+
+        //console.log(user);
+
+        console.log(user.first_name);
+
+        console.log(user.social_media[0]);
+
+        console.log(user.phone_numbers.work);
+
+
+        user.first_name = "Bob";
+        console.log(user);
+
+
+
+        delete user.phone_numbers.home;
+        console.log(user.phone_numbers);
+
+
+
+        user.social_media[3] = "wordPress.com";
+        console.log(user.social_media);
+
+        //converting back to json
+
+        var data = JSON.stringify(user);
+        console.log(data)
+
+
+
+
+    </script>
+</body>
+</html>

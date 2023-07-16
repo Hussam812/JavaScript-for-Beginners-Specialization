@@ -159,6 +159,12 @@ header nav ul li a {
 }
 
 .slide1 { background-image: url("images/slider/slider01-small.jpg"); }
+.slide2 { background-image: url("images/slider/slider02-small.jpg"); }
+.slide3 { background-image: url("images/slider/slider03-small.jpg"); }
+.slide4 { background-image: url("images/slider/slider04-small.jpg"); }
+.slide5 { background-image: url("images/slider/slider05-small.jpg"); }
+.slide6 { background-image: url("images/slider/slider06-small.jpg"); }
+
 /*Add styling for additional slide backgrounds*/
 
 #slider .cta {
@@ -592,4 +598,22 @@ footer article a {
 
 @media only screen and (min-width: 1500px) {
 	header { width: 1500px; left: 50%; transform: translateX(-50%); }
+}
+
+
+.flex-nav-next, .flex-nav-prev {
+	display: none;
+}
+
+#slider ol{
+	list-style-type: square;
+}
+
+.flex-control-paging li a.flex-active{
+
+	background: var(--firey-rose);
+
+}
+.flex-control-paging li a{
+	border-radius: 0px;
 }
