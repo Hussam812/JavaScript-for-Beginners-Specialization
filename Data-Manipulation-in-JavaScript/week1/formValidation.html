@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <!--<script src="plainjsvalidation.js"defer></script>-->
+
+
+</head>
+
+<body>
+
+    <h1>Basic Form with Browser Validtion</h1>
+    <form action="post" id="myform">
+        <p>
+            <label for="name">Name</label>
+          <input type="text" id="name" name="name" required><span id="name-err"></span>
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required><span id="email-err"></span>
+
+        </p>
+        
+        <p>
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website"><span id="url-err"></span>
+        </p>
+
+        <p>
+            <label for="comments">Comments</label><span id="comments-err"></span>
+            <br>
+            <textarea name="comments" id="comments" cols="50" rows="10"></textarea>
+        </p>
+        
+        <p> 
+            <input type="submit" name="send" id="submit" value="send it">
+        </p>
+    </form>
+
+
+</body>
+</html>
