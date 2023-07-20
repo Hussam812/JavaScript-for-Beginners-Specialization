@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
     <!--<script src="plainjsvalidation.js"defer></script>-->
-
+    <style>
+        label.error {
+            color: #D40004;
+            display: block;
+            border: 2px solid #d40001;
+            padding: 15px;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+    </style>
 
 </head>
 
 <body>
 
     <h1>Basic Form with Browser Validtion</h1>
-    <form action="post" id="myform">
+    <form action="get" id="myform">
         <p>
             <label for="name">Name</label>
           <input type="text" id="name" name="name" required><span id="name-err"></span>
@@ -20,13 +29,13 @@
 
         <p>
             <label for="email">Email</label>
-            <input type="text" id="email" name="email" required><span id="email-err"></span>
+            <input type="email" id="email" name="email" required><span id="email-err"></span>
 
         </p>
         
         <p>
             <label for="website">Website</label>
-            <input type="text" id="website" name="website"><span id="url-err"></span>
+            <input type="url" id="website" name="website"><span id="url-err"></span>
         </p>
 
         <p>
@@ -40,6 +49,14 @@
         </p>
     </form>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+   
+    <script>
+       $("#myform").validate();
+
+    </script>
 
 </body>
 </html>
