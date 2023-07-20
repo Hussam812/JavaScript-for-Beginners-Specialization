@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Validator Plugin</title>
+    <style>
+        #messagebox {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 250px;
+            padding: 15px;
+            border: 2px solid #666;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="post" id="myform">
+        <div class="form-section">
+            <p>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name">
+            </p>
+    
+            <p>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email">
+            </p>
+    
+            <p>
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone">
+            </p>
+    
+            <fieldset>
+                <legend>Preferred Method for Contact</legend>
+                <input type="radio" name="contacttype" value="email" id="emailcontact" checked>
+            
+                <label for="emailcontact">Email</label> <br>
+    
+                <input type="radio" name="contacttype" value="phone" id="phonecontact" checked>
+            
+                <label for="phonecontact">Phone</label> <br>
+                
+                <input type="radio" name="contacttype" value="none" id="nonecontact" checked>
+            
+                <label for="nonecontact">Do not contact</label> <br>
+            
+            </fieldset>
+    
+          
+        </div>
+    
+        <fieldset>
+            <legend>Pick Three Favorite Cheeses</legend>
+
+            <input type="checkbox" name="cheddar" id="cheese[]" value="cheddar">
+            <label for="cheddar">Cheddar</label>
+
+
+            <input type="checkbox" name="swiss" id="cheese[]" value="Swiss">
+            <label for="swiss">Swiss</label>
+
+
+            <input type="checkbox" name="colby" id="cheese[]" value="Colby">
+            <label for="colby">Colby</label>
+
+        </fieldset>
+
+        <input type="submit" name="send" id="send" value="send it">
+        
+        <div id="messagebox">
+            <h4>Please Fix These Errors</h4>
+            <ul></ul>
+        </div>
+    
+    </form>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+   
+    <script type="text/javascript">
+        $.validator.addMethod("phoneRegex", function(value, element){
+            return this.optional(element) || /^\(?[\d]{3}\)?[\s-]?[\d]{3}[\s-]?[\d]{4}$/i.test(value);
+        }, "Please type a valid U.S. Phone Number.")
+        $("#myform").validate({
+            rules:{
+                name: "required",
+                email: {required: true, email:true},
+                "cheese[]": {required: true, minlength: 3, maxlength: 3},
+                phone: {required: true, phoneRegex: true},
+                cheesetype: "required"
+            },
+            messages: {
+                name: "Dude, gimme your name.",
+                email: {required: "Email is required", email: "Vaild email address please"},
+                "cheese[]": "You must choose three cheeses",
+                phone: {required: "Phone is required", phone:""},
+                cheesetype: "Type of prefered cheese is required"
+            },
+            errorContainer: "messagebox",
+            errorLabelContainer: "#messagebox ul",
+            wrapper: "li"
+        });
+    </script>
+</body>
+</html>
