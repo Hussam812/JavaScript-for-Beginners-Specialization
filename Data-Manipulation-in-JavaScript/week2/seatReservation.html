@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Reservation program</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Reserve Your Seats</h1>
+    <div id="stage">Stage</div>
+    <div id="seating">
+        <section id="left">
+            <div class="label">A</div>
+            <div id="a1">1</div>
+            <div id="a2">2</div>
+            <div id="a3">3</div>
+        </section>
+
+        <section id="middle">
+            <div id="a4">4</div>
+            <div id="a5">5</div>
+            <div id="a6">6</div>
+            <div id="a7">7</div>
+            <div id="a8">8</div>
+            <div id="a9">9</div>
+            <div id="a10">10</div>
+            <div id="a11">11</div>
+            <div id="a12">12</div>
+        </section>
+
+        <section id="right">
+            <div id="a13">13</div>
+            <div id="a14">14</div>
+            <div id="a15">15</div>
+            <div class="label">A</div>
+        </section>
+    </div>
+
+
+    <script>
+        const stageRows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+        document.getElementById("left").innerHTML = "";
+        document.getElementById("middle").innerHTML = "";
+        document.getElementById("right").innerHTML = "";
+
+        let counter =  1;
+        stageRows.forEach(row => {
+            document.getElementById("left").innerHTML +=  `<div class="label">${row}</div>`;
+            for (i = 0;i < 3; i++){
+                document.getElementById("left").innerHTML += `<div id="${row}${counter}">${counter}</div>`
+                counter++;
+            }
+            counter +=12;
+        });
+
+
+        counter =  4;
+        stageRows.forEach(row => {
+            //document.getElementById("middle").innerHTML +=  `<div class="label">${row}</div>`;
+            for (i = 0;i < 9; i++){
+                document.getElementById("middle").innerHTML += `<div id="${row}${counter}">${counter}</div>`
+                counter++;
+            }
+            counter +=6;
+        });
+
+        counter =  13;
+        stageRows.forEach(row => {
+            for (i = 0;i < 3; i++){
+                document.getElementById("right").innerHTML += `<div id="${row}${counter}">${counter}</div>`
+                counter++;
+            }
+            counter +=12;
+            document.getElementById("right").innerHTML +=  `<div class="label">${row}</div>`;
+
+        });
+
+    </script>
+</body>
+</html>

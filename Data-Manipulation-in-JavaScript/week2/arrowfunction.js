@@ -60,3 +60,5 @@ console.log(scores.reduce(totals));
 */
 
 console.log(scores.reduce((accumulatore, curVal) => accumulatore + curVal));
+
+
