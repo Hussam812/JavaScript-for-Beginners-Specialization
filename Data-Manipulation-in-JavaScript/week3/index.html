@@ -7,21 +7,52 @@
    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Reserve Your Seats</h1>
-    <div id="stage">Stage</div>
-    <div id="seating">
-        <section id="left">
-    
-        </section>
+	<h1>Reserve Your Seats</h1>
 
-        <section id="middle">
-            
-        </section>
+	<div id="stage">Stage</div>
 
-        <section id="right">
-           
-        </section>
-    </div>
+	<div id="seating">
+		<section id="left">
+			<!-- Use JavaScript to replace these -->
+
+		</section>
+
+		<section id="middle">
+			<!-- Use JavaScript to replace these -->
+
+		</section>
+
+		<section id="right">
+			<!-- Use JavaScript to replace these -->
+
+		</section>
+	</div>
+	
+	<a href="#" id="reserve">Reserve Seats</a>
+		
+		<section id="resform">
+		
+			<h2>Complete This Form To Confirm Your Reservation</h2>
+			
+			<p id="selectedseats">You have selected X Seats</p>
+			
+			<form id="confirmres">
+				
+				<label for="fname">First Name</label>
+				<input type="text" name="fname" id="fname" placeholder="Bob" required="">
+				
+				<label for="lname">Last Name</label>
+				<input type="text" name="lname" id="lname" placeholder="Jones" required="">
+				
+				<input type="submit" name="send" id="confirmbtn" value="Confirm Reservation">
+				
+				<p>Or <a href="#" id="cancel">cancel</a> and choose different seats</p>
+			
+			</form>
+		
+		</section>
+
+
     <script>
         /*
         let html = "";
@@ -69,7 +100,7 @@
         });
         document.getElementById("middle").innerHTML = html;
         */
-       function makeRows(sectionLength, rowLength, placemnt){
+    function makeRows(sectionLength, rowLength, placemnt){
         let html = "";
         let counter = 1;
 
@@ -96,12 +127,12 @@
         };
         
 
-       makeRows(3, 15,"left");
-       makeRows(3, 15,"right");
-       makeRows(9, 15,"middle");
+    makeRows(3, 15,"left");
+    makeRows(3, 15,"right");
+    makeRows(9, 15,"middle");
 
-       let reservedSeats = {
-       
+    let reservedSeats = {
+    
             record1:{
                 seat: "b19",
                 owner: {
@@ -140,7 +171,7 @@
             }
         }
         
-   
+
         var selectedSeats = [];
         var seats = document.querySelectorAll(".a");
 
@@ -152,10 +183,11 @@
 
             });
         });
-   
+
         function seatSlectionProcess(thisSeat){
             var index = selectedSeats.indexOf(thisSeat);
-            if (index > -1){
+            if(!document.getElementById(thisSeat).classList.contains("r")){
+                if (index > -1){
                 selectedSeats.splice(index, 1);
                 document.getElementById(thisSeat).className = "a";
 
@@ -163,10 +195,86 @@
                 selectedSeats.push(thisSeat);
                 document.getElementById(thisSeat).className ="s"
             }
-            console.log(selectedSeats)
+            manageConfirmationForm();
+            console.log(selectedSeats);
+            }
+           
         }
         
+        document.getElementById("reserve").addEventListener("click", function(event){
+            document.getElementById("resform").style.display = "block";
+            event.preventDefault();
+        });
+
+
+        document.getElementById("cancel").addEventListener("click", function(evt){
+            document.getElementById("resform").style.display = "none";
+            event.preventDefault();
+
+        })
+
+        function manageConfirmationForm(){
+            if(selectedSeats.length > 0){
+                document.getElementById('confirmres').style.display = "block";
+                
+                if(selectedSeats.length === 1){
+                    document.getElementById("selectedseats").innerHTML = `you have selected seat ${selectedSeats[0]}`;
+
+                }else{
+                    let seatsString = selectedSeats.toString();
+                    seatsString = seatsString.replace(/,/g, ", ");
+                    seatsString = seatsString.replace(/,(?=[^,]*$)/, " and");
+
+                    document.getElementById("selectedseats").innerHTML = `you have selected seats ${seatsString}`;
+                }
+               
+            }else{
+                document.getElementById('confirmres').style.display = "none";
+                document.getElementById("selectedseats").innerHTML = `You need to select some seats to reserve.<br><a href="#" id="error">Close</a> this dialog box and pick at least one seat.`;
+                document.getElementById("error").addEventListener("click", function(){
+                    document.getElementById("resform").style.display = "none";
+                })
+                
+            }
+
+
+        }
+
+        manageConfirmationForm();
+
+
+        document.getElementById("confirmres").addEventListener("submit", function(event){
+            processReservation();
+            event.preventDefault();
+        });
+
+        function processReservation(){
+            const hardCodeRecords = object.Keys(reservedSeats).length;
+            const fname = document.getElementById("fname").value;
+            const lname = document.getElementById("lname").value;
+            let counter = 1;
+            let nextRecord = "";
+
+            selectedSeats.forEach(function(thisSeat){
+                document.getElementById(thisSeat).className = "r";
+                document.getElementById(thisSeat).innerHTML = "R";
+
+                nextRecord = `record${hardCodeRecords + counter}`;
+                reservedSeats[nextRecord] = {
+                    seat: thisSeat,
+                    owner: {
+                        fname: fname,
+                        lname: lname
+                    }
+                };
+                counter++;
+            });
+            document.getElementById("resform").style.display = "none";
+            selectedSeats = [];
+            console.log(selectedSeats);
+        }
 
     </script>
+
 </body>
 </html>
