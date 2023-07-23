@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Reservation</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Reserve Your Seats</h1>
+    <div id="stage">Stage</div>
+    <div id="seating">
+        <section id="left">
+    
+        </section>
+
+        <section id="middle">
+            
+        </section>
+
+        <section id="right">
+           
+        </section>
+    </div>
+    <script>
+        /*
+        let html = "";
+        let counter = 1;
+
+        rows.forEach(function(row){
+            html += `<div class="label">${row}</div>`;
+            for (let i = 0; i<3; i++){
+                html += `<div id="${row + counter}">${counter}</div>`;
+                counter++;
+            }
+            counter += 12
+        });
+        document.getElementById("left").innerHTML = html
+
+        
+        html = "";
+        counter = 1;
+
+
+        rows.forEach(function(row){
+            counter += 12;
+            for (let i = 0; i<3; i++){
+                html += `<div id="${row + counter}">${counter}</div>`;
+                counter++;
+            }
+            html += `<div class="label">${row}</div>`;
+
+        });
+        document.getElementById("right").innerHTML = html
+
+
+
+        html = "";
+        counter = 1;
+
+
+        rows.forEach(function(row){
+            counter += 3;
+            for (let i = 0; i<9; i++){
+                html += `<div id="${row + counter}">${counter}</div>`;
+                counter++;
+            }
+            counter += 3;
+        });
+        document.getElementById("middle").innerHTML = html;
+        */
+       function makeRows(sectionLength, rowLength, placemnt){
+        let html = "";
+        let counter = 1;
+
+        const rows =  ["a", "b", "c", "d", "f", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "f"];
+
+        rows.forEach(function(row){
+            switch (placemnt){
+                case "left": html += `<div class="label">${row}</div>`; break;
+                case "right": counter += (rowLength-sectionLength); break;
+                default: counter += ((rowLength-sectionLength)/2);
+            }
+            for (let i = 0; i<sectionLength; i++){
+                html += `<div class="a" id="${row + counter}">${counter}</div>`;
+                counter++;
+            };
+            switch (placemnt){
+                case "left":  counter = counter+ (rowLength-sectionLength);break;
+                case "right":  html += `<div class="label">${row}</div>`;break;
+                default: counter = counter+ ((rowLength-sectionLength)/2);
+            };
+            document.getElementById(placemnt).innerHTML = html;
+        });
+
+        };
+        
+
+       makeRows(3, 15,"left");
+       makeRows(3, 15,"right");
+       makeRows(9, 15,"middle");
+
+       let reservedSeats = {
+       
+        record1:{
+            seat: "b19",
+            owner: {
+                fname: "Joe",
+                lname: "Smith"
+            }
+        },
+        record2:{
+            seat: "b20",
+            owner: {
+                fname: "Joe",
+                lname: "Smith"
+            }
+        },
+        record3:{
+            seat: "b21",
+            owner: {
+                fname: "Joe",
+                lname: "Smith"
+            }
+        },
+        record4:{
+            seat: "b22",
+            owner: {
+                fname: "Joe",
+                lname: "Smith"
+            }
+        }
+    }
+
+    
+    for (const key in reservedSeats){
+        if (reservedSeats.hasOwnProperty(key)){
+            const obj = reservedSeats[key];
+            document.getElementById(obj.seat).className = "r";
+            document.getElementById(obj.seat).innerHTML = "R";
+        }
+    }
+   
+   
+    
+
+    </script>
+</body>
+</html>
